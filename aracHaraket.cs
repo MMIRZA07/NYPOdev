@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class aracHaraket : MonoBehaviour
 {
 
     [SerializeField] WheelCollider frontRight; //serializeField sayesinde publi"c olmayanları kullanabiliz 
@@ -30,16 +30,18 @@ public class NewBehaviourScript : MonoBehaviour
         frontRight.motorTorque = mevcutHiz;
         frontLeft.motorTorque = mevcutHiz;
 
-        if (Input.GetKey(KeyCode.Space)){
+        if (Input.GetKey(KeyCode.Space))
+        {
             mevcutFren = frenGüc;
-        } else mevcutFren = 0f;
-        
-        frontRight.brakeTorque =mevcutFren;
+        }
+        else mevcutFren = 0f;
+
+        frontRight.brakeTorque = mevcutFren;
         frontLeft.brakeTorque = mevcutFren;
         backLeft.brakeTorque = mevcutFren;
         backRight.brakeTorque = mevcutFren;
 
-        mevcutDonme =  donmeAci * Input.GetAxis("Horizontal");
+        mevcutDonme = donmeAci * Input.GetAxis("Horizontal");
 
         frontRight.steerAngle = mevcutDonme;
         frontLeft.steerAngle = mevcutDonme;
@@ -54,7 +56,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
 
         //Get
-        
+
         Vector3 position;
         Quaternion rotation;
         col.GetWorldPose(out position, out rotation);//fonksiyona konulan colliderin pozisyonu ve rotasyonunu buradakilere göre aktarma yapar
